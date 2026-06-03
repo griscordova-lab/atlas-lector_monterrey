@@ -189,13 +189,18 @@ h1 {
 }
 
 .grafica-contenedor {
-  margin-top: 1.2rem;
-  padding: 1.5rem;
+  margin-top: 1.5rem;
+
+  padding: 2.5rem 2rem;   /* 🔥 más alto arriba y abajo */
+
   background: #EDE6DC;
   border-radius: 12px;
+
   display: flex;
+  align-items: center;
   justify-content: center;
 }
+
 
 .grafica-contenedor img {
   max-width: 100%;
@@ -293,7 +298,7 @@ h1 {
 }
 
 .detalle strong {
-  color: var(--rojo);
+  color: var(--azul);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(4rem, 8vw, 7rem);
   line-height: 1;
@@ -442,7 +447,7 @@ h1 {
 }
 
 .cierre-visual span:nth-child(2) {
-  background: linear-gradient(180deg, #e1b24a, #b5484c);
+  background: linear-gradient(180deg, #daa7e6, #a15ee8);
 }
 .visual.venn {
   position: relative;
@@ -493,4 +498,19 @@ h1 {
   background: #C0D7E6;
   color: #202124;
   transform: translate(0px, 70px);
+}
+.portada {
+  min-height: 88vh;
+  display: grid;
+  align-content: end;
+  padding: 5rem max(1.25rem, 8vw);
+  color: #fff;
+
+  background:
+    linear-gradient(90deg, rgba(24,34,36,0.85), rgba(24,34,36,0.35)),
+    url("images/banner.png");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
