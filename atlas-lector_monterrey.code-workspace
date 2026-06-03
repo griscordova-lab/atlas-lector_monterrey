@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../enflujo-curso-vis-tec-main/plantillas/06-desplazamiento-horizontal"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "atlas-lector_monterrey",
+		"liveServer.settings.port": 5501
+	}
+}

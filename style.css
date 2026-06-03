@@ -63,7 +63,6 @@ h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(3.25rem, 8vw, 7.6rem);
   line-height: 0.95;
-  letter-spacing: 0;
 }
 
 .bajada {
@@ -139,10 +138,9 @@ h1 {
 
 .panel {
   width: min(78vw, 760px);
-  min-height: 68vh;
-  display: grid;
-  grid-template-rows: auto auto auto 1fr;
-  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
   padding: clamp(1.25rem, 3vw, 2.4rem);
   border: 1px solid var(--linea);
   border-radius: 8px;
@@ -156,113 +154,108 @@ h1 {
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 4vw, 4.5rem);
   line-height: 1;
-  letter-spacing: 0;
 }
 
-.panel p:not(.etiqueta),
-.nota-final p:not(.etiqueta) {
+.panel p {
+  max-width: 60ch;
+  margin-bottom: 0.6rem;
   font-size: 1.05rem;
 }
 
 .visual {
-  min-height: 260px;
-  align-self: end;
   margin-top: 1rem;
   border: 1px solid var(--linea);
   border-radius: 8px;
   background: #f5f0e8;
 }
 
-.linea-tiempo {
-  position: relative;
+.grafica-contenedor {
+  margin-top: 1.2rem;
+  padding: 1.5rem;
+  background: #EDE6DC;
+  border-radius: 12px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.linea-tiempo::before {
-  content: "";
-  position: absolute;
-  left: 12%;
-  right: 12%;
-  top: 50%;
-  height: 3px;
-  background: var(--azul);
+.grafica-contenedor img {
+  max-width: 100%;
+  height: auto;
 }
 
-.linea-tiempo span {
+.visual.mapa {
   position: relative;
-  width: 3.2rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: var(--amarillo);
-  border: 6px solid #f5f0e8;
-}
-
-.barras {
-  display: flex;
-  align-items: end;
-  gap: 0.9rem;
-  padding: 2rem;
-}
-
-.barras span {
-  flex: 1;
-  height: var(--alto);
-  min-height: 2rem;
-  border-radius: 8px 8px 0 0;
-  background: var(--azul);
-}
-
-.mapa {
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  background: #EDE6DC;
+  border-radius: 12px;
 }
 
 .zona,
 .punto {
   position: absolute;
-  display: block;
 }
 
 .zona {
-  border: 2px solid rgba(32, 33, 36, 0.18);
-  background: rgba(37, 116, 91, 0.24);
+  border-radius: 40px;
+  opacity: 0.4;
 }
 
-.zona-a {
-  inset: 16% 48% 18% 10%;
-  border-radius: 48% 34% 44% 30%;
+.zona-monterrey {
+  background: #6D3FB2;
+  width: 60%;
+  height: 130px;
+  top: 50px;
+  left: 20px;
 }
 
-.zona-b {
-  inset: 22% 12% 12% 42%;
-  border-radius: 32% 54% 36% 48%;
-  background: rgba(39, 110, 146, 0.24);
+.zona-sanpedro {
+  background: #3A86C8;
+  width: 35%;
+  height: 90px;
+  top: 60px;
+  right: 20px;
+}
+
+.zona-sannicolas {
+  background: #E76FAD;
+  width: 30%;
+  height: 80px;
+  bottom: 20px;
+  left: 80px;
+}
+
+.zona-garcia {
+  background: #4CAF7D;
+  width: 25%;
+  height: 70px;
+  bottom: 30px;
+  right: 60px;
 }
 
 .punto {
-  width: 1.1rem;
-  aspect-ratio: 1;
+  width: 10px;
+  height: 10px;
+  background: #222;
   border-radius: 50%;
-  background: var(--rojo);
-  box-shadow: 0 0 0 0.8rem rgba(181, 72, 76, 0.16);
 }
 
-.punto-a {
-  left: 28%;
-  top: 45%;
+.punto-a { top: 90px; left: 120px; }
+.punto-b { top: 110px; left: 200px; }
+.punto-c { top: 80px; right: 120px; }
+.punto-d { bottom: 60px; left: 150px; }
+.punto-e { bottom: 80px; right: 100px; }
+
+.label {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
 }
 
-.punto-b {
-  left: 62%;
-  top: 32%;
-}
-
-.punto-c {
-  left: 70%;
-  top: 64%;
-}
+.label-mty { top: 20px; left: 40px; }
+.label-sp { top: 20px; right: 40px; }
+.label-sn { bottom: 10px; left: 100px; }
+.label-g { bottom: 10px; right: 100px; }
 
 .detalle {
   display: grid;
@@ -282,22 +275,6 @@ h1 {
   font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
-}
-
-.cierre-visual {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  padding: 1.5rem;
-}
-
-.cierre-visual span {
-  border-radius: 8px;
-  background: linear-gradient(180deg, var(--verde), var(--azul));
-}
-
-.cierre-visual span:nth-child(2) {
-  background: linear-gradient(180deg, var(--amarillo), var(--rojo));
 }
 
 @media (max-width: 820px) {
@@ -325,212 +302,47 @@ h1 {
 
   .panel {
     width: min(86vw, 520px);
-    min-height: 70vh;
     scroll-snap-align: center;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .pista {
-    will-change: auto;
-  }
-}
-.registro-section{
-  max-width:800px;
-  margin:0 auto;
-  padding:40px 20px;
+.registro-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
 }
 
-.registro-formulario{
-  display:flex;
-  flex-direction:column;
-  gap:12px;
+.registro-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.registro-formulario h3{
-  margin-top:25px;
+.registro-formulario h3 {
+  margin-top: 25px;
 }
 
 .registro-formulario input,
 .registro-formulario select,
-.registro-formulario textarea{
-  padding:10px;
-  border:1px solid #ccc;
-  border-radius:6px;
-  font-size:1rem;
+.registro-formulario textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
 }
 
-.registro-formulario button{
-  margin-top:20px;
-  padding:12px;
-  border:none;
-  border-radius:6px;
-  cursor:pointer;
-  font-size:1rem;
+.registro-formulario button {
+  margin-top: 20px;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
-.checkbox-group{
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-  margin-top:10px;
-}
-
-.grafica-contenedor {
-  margin-top: 2rem;
-  padding: 2rem;
-  background: #EDE6DC; /* mismo tono de tu bloque */
-  border-radius: 12px;
+.checkbox-group {
   display: flex;
-  justify-content: center;
-}
-
-.grafica-contenedor img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
-.visual.mapa {
-  position: relative;
-  width: 100%;
-  height: 200px;
-  background: #EDE6DC;
-  border-radius: 12px;
-}
-
-/* ZONAS */
-.zona {
-  position: absolute;
-  border-radius: 40px;
-  opacity: 0.4;
-}
-
-.zona-a {
-  background: #6D3FB2; /* Monterrey */
-  width: 60%;
-  height: 120px;
-  top: 40px;
-  left: 20px;
-}
-
-.zona-b {
-  background: #3A86C8; /* San Pedro */
-  width: 35%;
-  height: 90px;
-  top: 60px;
-  right: 20px;
-}
-
-/* PUNTOS */
-.punto {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #2D2D2D;
-  border-radius: 50%;
-}
-
-.punto-a { top: 80px; left: 80px; }
-.punto-b { top: 100px; left: 140px; }
-.punto-c { top: 110px; right: 80px; }
-
-.visual.mapa {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  background: #EDE6DC;
-  border-radius: 12px;
-}
-
-/* ZONAS */
-.zona {
-  position: absolute;
-  border-radius: 40px;
-  opacity: 0.4;
-}
-
-/* Monterrey (núcleo) */
-.zona-monterrey {
-  background: #6D3FB2;
-  width: 60%;
-  height: 130px;
-  top: 50px;
-  left: 20px;
-}
-
-/* San Pedro (nicho + menor densidad) */
-.zona-sanpedro {
-  background: #3A86C8;
-  width: 35%;
-  height: 90px;
-  top: 60px;
-  right: 20px;
-}
-
-/* San Nicolás (intermedio) */
-.zona-sannicolas {
-  background: #E76FAD;
-  width: 30%;
-  height: 80px;
-  bottom: 20px;
-  left: 80px;
-}
-
-/* García (periferia) */
-.zona-garcia {
-  background: #4CAF7D;
-  width: 25%;
-  height: 70px;
-  bottom: 30px;
-  right: 60px;
-}
-
-/* PUNTOS */
-.punto {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #222;
-  border-radius: 50%;
-}
-
-.punto-a { top: 90px; left: 120px; }
-.punto-b { top: 110px; left: 200px; }
-.punto-c { top: 80px; right: 120px; }
-.punto-d { bottom: 60px; left: 150px; }
-.punto-e { bottom: 80px; right: 100px; }
-
-/* ETIQUETAS */
-.label {
-  position: absolute;
-  font-size: 12px;
-  font-weight: bold;
-}
-
-.label-mty { top: 20px; left: 40px; }
-.label-sp  { top: 20px; right: 40px; }
-.label-sn  { bottom: 10px; left: 100px; }
-.label-g   { bottom: 10px; right: 100px; }
-
-.panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: 2rem;
-}
-
-/* controla el contenido */
-.panel p {
-  margin-bottom: 1rem;
-  max-width: 60ch; /* 🔥 mejora legibilidad */
-}
-
-/* controla visuales */
-.grafica-contenedor,
-.visual {
-  margin-top: auto; /* 🔥 empuja la visual hacia abajo sin romper layout */
+  gap: 10px;
+  align-items: flex-start;
+  margin-top: 10px;
 }
