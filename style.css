@@ -379,3 +379,158 @@ h1 {
   align-items:flex-start;
   margin-top:10px;
 }
+
+.grafica-contenedor {
+  margin-top: 2rem;
+  padding: 2rem;
+  background: #EDE6DC; /* mismo tono de tu bloque */
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.grafica-contenedor img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.visual.mapa {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: #EDE6DC;
+  border-radius: 12px;
+}
+
+/* ZONAS */
+.zona {
+  position: absolute;
+  border-radius: 40px;
+  opacity: 0.4;
+}
+
+.zona-a {
+  background: #6D3FB2; /* Monterrey */
+  width: 60%;
+  height: 120px;
+  top: 40px;
+  left: 20px;
+}
+
+.zona-b {
+  background: #3A86C8; /* San Pedro */
+  width: 35%;
+  height: 90px;
+  top: 60px;
+  right: 20px;
+}
+
+/* PUNTOS */
+.punto {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #2D2D2D;
+  border-radius: 50%;
+}
+
+.punto-a { top: 80px; left: 80px; }
+.punto-b { top: 100px; left: 140px; }
+.punto-c { top: 110px; right: 80px; }
+
+.visual.mapa {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: #EDE6DC;
+  border-radius: 12px;
+}
+
+/* ZONAS */
+.zona {
+  position: absolute;
+  border-radius: 40px;
+  opacity: 0.4;
+}
+
+/* Monterrey (núcleo) */
+.zona-monterrey {
+  background: #6D3FB2;
+  width: 60%;
+  height: 130px;
+  top: 50px;
+  left: 20px;
+}
+
+/* San Pedro (nicho + menor densidad) */
+.zona-sanpedro {
+  background: #3A86C8;
+  width: 35%;
+  height: 90px;
+  top: 60px;
+  right: 20px;
+}
+
+/* San Nicolás (intermedio) */
+.zona-sannicolas {
+  background: #E76FAD;
+  width: 30%;
+  height: 80px;
+  bottom: 20px;
+  left: 80px;
+}
+
+/* García (periferia) */
+.zona-garcia {
+  background: #4CAF7D;
+  width: 25%;
+  height: 70px;
+  bottom: 30px;
+  right: 60px;
+}
+
+/* PUNTOS */
+.punto {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #222;
+  border-radius: 50%;
+}
+
+.punto-a { top: 90px; left: 120px; }
+.punto-b { top: 110px; left: 200px; }
+.punto-c { top: 80px; right: 120px; }
+.punto-d { bottom: 60px; left: 150px; }
+.punto-e { bottom: 80px; right: 100px; }
+
+/* ETIQUETAS */
+.label {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.label-mty { top: 20px; left: 40px; }
+.label-sp  { top: 20px; right: 40px; }
+.label-sn  { bottom: 10px; left: 100px; }
+.label-g   { bottom: 10px; right: 100px; }
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 2rem;
+}
+
+/* controla el contenido */
+.panel p {
+  margin-bottom: 1rem;
+  max-width: 60ch; /* 🔥 mejora legibilidad */
+}
+
+/* controla visuales */
+.grafica-contenedor,
+.visual {
+  margin-top: auto; /* 🔥 empuja la visual hacia abajo sin romper layout */
+}
